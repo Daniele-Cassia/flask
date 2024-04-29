@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import logging
-import sys
 import typing as t
 
 from werkzeug.local import LocalProxy
@@ -25,7 +24,7 @@ def wsgi_errors_stream() -> t.TextIO:
     if request:
         return request.environ["wsgi.errors"]  # type: ignore[no-any-return]
 
-    return sys.stderr
+    return None
 
 
 def has_level_handler(logger: logging.Logger) -> bool:
